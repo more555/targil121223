@@ -101,9 +101,9 @@
             },
             "donuts": [
                 {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "donutName": "choco candy",
+                    "donutTitle": "the colorfull",
+                    "donutImage": "../assets/images/donuts/candy.jpg",
                     "price": 130,
                     "gluten": false,
                     "calories": 323,
@@ -151,6 +151,58 @@
                 }
             ]
         },
+        {
+            "userID": 4,
+            "firstName": "cosmo",
+            "lastName": "kramer",
+            "email": "cosmo@kramer.com",
+            "password": "MichaelRichards",
+            "avatar": "../assets/images/kramer.jpg",
+            "isSeller": true,
+            "company": {
+                "companyName": "art vandelay food production",
+                "country": "united states",
+                "city": "new york"
+            },
+            "donuts": [
+                {
+                    "donutName": "gold cookie cream",
+                    "donutTitle": "golden sweetness",
+                    "donutImage": "../assets/images/donuts/cockey.jpg",
+                    "price": 14,
+                    "gluten": true,
+                    "calories": 450,
+                    "additions": [
+                        "perline biscutino","crem",
+                        "vanilla cake cream", "caramel cookie crumble"
+                    ]
+                },
+                {
+                    "donutName": "sweet rose",
+                    "donutTitle": "with the cherry on top",
+                    "donutImage": "../assets/images/donuts/rose.jpg",
+                    "price": 13,
+                    "gluten": true,
+                    "calories": 400,
+                    "additions": [
+                        "roses mascarpone cream","red fruit cream",
+                        "cassis marmelade", "raspberry glasage", "crispy yogurt"
+                    ]
+                },
+                {
+                    "donutName": "black crumble cookie",
+                    "donutTitle": "for the love of OREO",
+                    "donutImage": "../assets/images/donuts/crumble.jpg",
+                    "price": 15,
+                    "gluten": true,
+                    "calories": 550,
+                    "additions": [
+                        "vanilla patissier", "cream",
+                        "cookie crumble", "OREO cookie"
+                    ]
+                }
+            ]
+        }
         
     ]
 }
