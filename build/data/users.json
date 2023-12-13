@@ -101,12 +101,12 @@
             },
             "donuts": [
                 {
-                    "donutName": "choco candy",
-                    "donutTitle": "the colorfull",
-                    "donutImage": "../assets/images/donuts/candy.jpg",
-                    "price": 13,
+                    "donutName": "Sdfdsfdsf",
+                    "donutTitle": "Sdfdsfdsf",
+                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "price": 130,
                     "gluten": false,
-                    "calories": 550,
+                    "calories": 323,
                     "additions": [
                         "milk chocolate cream",
                         "dark chocolate cream",
@@ -151,59 +151,6 @@
                 }
             ]
         },
-        {
-            "userID": 4,
-            "firstName": "cosmo",
-            "lastName": "kramer",
-            "email": "cosmo@kramer.com",
-            "password": "MichaelRichards",
-            "avatar": "../assets/images/kramer.jpg",
-            "isSeller": true,
-            "company": {
-                "companyName": "the kramer",
-                "country": "united states",
-                "city": "new york"
-            },
-            "donuts": [
-                {
-                    "donutName": "gold cookie cream",
-                    "donutTitle": "golden sweetnes",
-                    "donutImage": "../assets/images/donuts/cockey.jpg",
-                    "price": 15,
-                    "gluten": true,
-                    "calories": 500,
-                    "additions":[
-                        "perline biscotino"," cream",
-                        "vanilla cake cream", "crumble caramel cookie"
-                    ]
-                },
-                {
-                    "donutName": "sweet rose",
-                    "donutTitle": "cherry on top",
-                    "donutImage": "../assets/images/donuts/rose.jpg",
-                    "price": 14,
-                    "gluten": true,
-                    "calories": 400,
-                    "additions": [
-                        "roses mascrpone cream"," cassis marmelade",
-                        "red fruit cream", "raspberry glasage",
-                        "crispy yogurt"
-                    ]
-                },
-                {
-                    "donutName": "black crumble cookies",
-                    "donutTitle": "we love OREO",
-                    "donutImage": "../assets/images/donuts/crumble.jpg",
-                    "price": 15,
-                    "gluten": true,
-                    "calories": 500,
-                    "additions": [
-                        "patissier vanilla", "cookie crumble",
-                        "cream", "OREO cookie"
-                    ]
-                }
-            ]
-        }
         
     ]
 }
