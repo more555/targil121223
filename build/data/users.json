@@ -1,0 +1,57 @@
+{
+    "users": [
+        {
+            "userID": 1,
+            "firstName": "kldsfasdas",
+            "lastName": "kldsfasdas",
+            "email": "kldsfasdas",
+            "password": "kldsfasdas",
+            "avatar": "Asdasd",
+            "isSeller": true,
+            "company": {
+                "companyName": "asdasd",
+                "country": "asdasd",
+                "city": "asdasd"
+            },
+            "donuts": [
+                {
+                    "donutName": "Sdfdsfdsf",
+                    "donutTitle": "Sdfdsfdsf",
+                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "price": 130,
+                    "gluten": false,
+                    "calories": 323,
+                    "additions": [
+                        "chocholate",
+                        "vanilla"
+                    ]
+                },
+                {
+                    "donutName": "Sdfdsfdsf",
+                    "donutTitle": "Sdfdsfdsf",
+                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "price": 130,
+                    "gluten": false,
+                    "calories": 323,
+                    "additions": [
+                        "chocholate",
+                        "vanilla"
+                    ]
+                },
+                {
+                    "donutName": "Sdfdsfdsf",
+                    "donutTitle": "Sdfdsfdsf",
+                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "price": 130,
+                    "gluten": true,
+                    "calories": 323,
+                    "additions": [
+                        "chocholate",
+                        "vanilla"
+                    ]
+                }
+            ]
+        },
+        
+    ]
+}
