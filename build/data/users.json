@@ -17,10 +17,10 @@
                 {
                     "donutName": "Sdfdsfdsf",
                     "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
-                    "price": 130,
-                    "gluten": false,
-                    "calories": 323,
+                    "donutImage": "../asstes/images/2.png",
+                    "price": 1.5,
+                    "gluten": true,
+                    "calories": 220,
                     "additions": [
                         "chocholate",
                         "vanilla"
