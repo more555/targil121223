@@ -2,52 +2,203 @@
     "users": [
         {
             "userID": 1,
-            "firstName": "kldsfasdas",
-            "lastName": "kldsfasdas",
-            "email": "kldsfasdas",
-            "password": "kldsfasdas",
-            "avatar": "Asdasd",
+            "firstName": "jerry",
+            "lastName": "seinfeld",
+            "email": "jerry@seinfeld.com",
+            "password": "ImTheKingOfMyDomain",
+            "avatar": "../assets/images/Jerry_Seinfeld.jpg",
             "isSeller": true,
             "company": {
-                "companyName": "asdasd",
-                "country": "asdasd",
-                "city": "asdasd"
+                "companyName": "seinfeld & co...",
+                "country": "united states",
+                "city": "new york"
             },
             "donuts": [
                 {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
-                    "price": 130,
-                    "gluten": false,
-                    "calories": 323,
-                    "additions": [
-                        "chocholate",
-                        "vanilla"
-                    ]
-                },
-                {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
-                    "price": 130,
-                    "gluten": false,
-                    "calories": 323,
-                    "additions": [
-                        "chocholate",
-                        "vanilla"
-                    ]
-                },
-                {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
-                    "price": 130,
+                    "donutName": "strawberry jam",
+                    "donutTitle": "the classis",
+                    "donutImage": "../assets/images/donuts/strawberry.jpg",
+                    "price": 10,
                     "gluten": true,
                     "calories": 323,
+                    "additions": "strawberry jam"
+                },
+                {
+                    "donutName": "dulce de leche",
+                    "donutTitle": "the classic with twist",
+                    "donutImage": "../assets/images/donuts/dulcedeleche.jpg",
+                    "price": 11,
+                    "gluten": true,
+                    "calories": 353,
+                    "additions": "dulce de leche"
+                },
+                {
+                    "donutName": "mascarpone & fruits",
+                    "donutTitle": "the pink one",
+                    "donutImage": "../assets/images/donuts/maskarpone.jpg",
+                    "price": 14,
+                    "gluten": true,
+                    "calories": 500,
                     "additions": [
-                        "chocholate",
-                        "vanilla"
+                        "vanilla mascrpone cream",
+                        "fruit jam", "raspberry crust"
+                    ]
+                }
+            ]
+        },
+        {
+            "userID": 2,
+            "firstName": "elain",
+            "lastName": "benes",
+            "email": "elain@benes.com",
+            "password": "JuliaLDreifus",
+            "avatar": "../assets/images/elaine.jpg",
+            "isSeller": true,
+            "company": {
+                "companyName": "the benes bakery",
+                "country": "united states",
+                "city": "new york"
+            },
+            "donuts": [
+                {
+                    "donutName": "dulce flour de sel",
+                    "donutTitle": "crazy latin",
+                    "donutImage": "../assets/images/donuts/dulcheflour.jpg",
+                    "price": 15,
+                    "gluten": true,
+                    "calories": 450,
+                    "additions": [
+                        "dulce de sel cream",
+                        "karamel toffee", "vanila sugar crust"
+                    ]
+                },
+                {
+                    "donutName": "meringue yuzu",
+                    "donutTitle": "lemon meringue",
+                    "donutImage": "../assets/images/donuts/mereng.jpg",
+                    "price": 14,
+                    "gluten": false,
+                    "calories": 400,
+                    "additions": [
+                        "vanilla cream",
+                        "yuzu lemon cream", "vanila sugar crust", "french meringue"
+                    ]
+                }
+            ]
+        },
+        {
+            "userID": 3,
+            "firstName": "george",
+            "lastName": "constanza",
+            "email": "george@constanza.com",
+            "password": "JasonAlexander",
+            "avatar": "../assets/images/george.jpg",
+            "isSeller": true,
+            "company": {
+                "companyName": "shrinkage patisserie",
+                "country": "united states",
+                "city": "new york"
+            },
+            "donuts": [
+                {
+                    "donutName": "choco candy",
+                    "donutTitle": "the colorfull",
+                    "donutImage": "../assets/images/donuts/candy.jpg",
+                    "price": 130,
+                    "gluten": false,
+                    "calories": 323,
+                    "additions": [
+                        "milk chocolate cream",
+                        "dark chocolate cream",
+                        "glasage noir", "chocolate hazelnut cream", "colorful candies"
+                    ]
+                },
+                {
+                    "donutName": "cassis coconut",
+                    "donutTitle": "the purple one",
+                    "donutImage": "../assets/images/donuts/coconut.jpg",
+                    "price": 13,
+                    "gluten": false,
+                    "calories": 450,
+                    "additions": [
+                        "yogurt coconut cream",
+                        "cassis marmelade", "french meringue","cassis glasage",
+                        "coconut and crispy yogurt"                ]
+                },
+                {
+                    "donutName": "rochers perline",
+                    "donutTitle": "for the love of chocolate",
+                    "donutImage": "../assets/images/donuts/ferrero.jpg",
+                    "price": 14,
+                    "gluten": false,
+                    "calories": 550,
+                    "additions": [
+                        "perline mascarpone cream",
+                        "nucella bianca", "cocoa sabela in chocolate hazelnuts crust"
+                    ]
+                },
+                {
+                    "donutName": "pistchio perline",
+                    "donutTitle": "the queen of green",
+                    "donutImage": "../assets/images/donuts/ferrero.jpg",
+                    "price": 13,
+                    "gluten": false,
+                    "calories": 400,
+                    "additions": [
+                        "pistachio mascarpone ganache",
+                        "vanilla cream", "pistchio perline"
+                    ]
+                }
+            ]
+        },
+        {
+            "userID": 4,
+            "firstName": "cosmo",
+            "lastName": "kramer",
+            "email": "cosmo@kramer.com",
+            "password": "MichaelRichards",
+            "avatar": "../assets/images/kramer.jpg",
+            "isSeller": true,
+            "company": {
+                "companyName": "art vandelay food production",
+                "country": "united states",
+                "city": "new york"
+            },
+            "donuts": [
+                {
+                    "donutName": "gold cookie cream",
+                    "donutTitle": "golden sweetness",
+                    "donutImage": "../assets/images/donuts/cockey.jpg",
+                    "price": 14,
+                    "gluten": true,
+                    "calories": 450,
+                    "additions": [
+                        "perline biscutino","crem",
+                        "vanilla cake cream", "caramel cookie crumble"
+                    ]
+                },
+                {
+                    "donutName": "sweet rose",
+                    "donutTitle": "with the cherry on top",
+                    "donutImage": "../assets/images/donuts/rose.jpg",
+                    "price": 13,
+                    "gluten": true,
+                    "calories": 400,
+                    "additions": [
+                        "roses mascarpone cream","red fruit cream",
+                        "cassis marmelade", "raspberry glasage", "crispy yogurt"
+                    ]
+                },
+                {
+                    "donutName": "black crumble cookie",
+                    "donutTitle": "for the love of OREO",
+                    "donutImage": "../assets/images/donuts/crumble.jpg",
+                    "price": 15,
+                    "gluten": true,
+                    "calories": 550,
+                    "additions": [
+                        "vanilla patissier", "cream",
+                        "cookie crumble", "OREO cookie"
                     ]
                 }
             ]
