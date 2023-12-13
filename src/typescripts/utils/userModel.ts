@@ -13,7 +13,7 @@ export interface DonutObj {
     gluten: boolean,
     lactose: boolean,
     calories: number,
-    adiitions?: string[]
+    additions?: (string)[]
 }
 
 export class User {

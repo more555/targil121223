@@ -1,11 +1,9 @@
-"use strict";
 let users = [
     {
         userID: 1,
         firstName: "Daniel",
         lastName: "Uretsky",
         email: "daniel353a3@gmail.com",
-        password: "123",
         avatar: "../assets/icons/user.png",
         isSeller: true,
         company: {
@@ -17,18 +15,19 @@ let users = [
             {
                 donutName: "Basic",
                 donutTitle: "A wonderful basic dough",
-                donutImage: "./asstes/images/2.png",
+                donutImage: "../assets/images/donuts/2.png",
                 price: 130,
                 gluten: false,
                 lactose: false,
                 calories: 323,
-                adiitions: []
+                additions: []
             },
             {
                 donutName: "Creamy almonds",
                 donutTitle: "Savor the Creamy Almonds donut without gluten: Cream and almonds in perfect harmony",
-                donutImage: "./asstes/images/8.png",
+                donutImage: "../assets/images/donuts/8.png",
                 price: 130,
+                gluten: false,
                 lactose: false,
                 calories: 323,
                 additions: [
@@ -43,7 +42,6 @@ let users = [
         firstName: "John",
         lastName: "Doe",
         email: "john@gmail.com",
-        password: "john123",
         avatar: "../assets/icons/user.png",
         isSeller: false,
     },
@@ -52,7 +50,6 @@ let users = [
         firstName: "Ariana",
         lastName: "Lotus",
         email: "ariana@gmail.com",
-        password: "123",
         avatar: "../assets/icons/user.png",
         isSeller: true,
         company: {
@@ -64,32 +61,52 @@ let users = [
             {
                 donutName: "Powedered Sugar",
                 donutTitle: "Basic dounut with powedered sugar",
-                donutImage: "./asstes/images/7.png",
+                donutImage: "../assets/images/donuts/7.png",
                 price: 2.2,
                 gluten: true,
                 lactose: false,
                 calories: 295,
+                additions: [
+                    "Powedered Sugar"
+                ]
             },
             {
                 donutName: "Choco Duo Delight",
                 donutTitle: "The perfect blend of white and dark chocolate in one delicious donut",
-                donutImage: "./asstes/images/8.png",
+                donutImage: "../assets/images/donuts/8.png",
                 price: 130,
                 gluten: true,
                 lactose: true,
                 calories: 323,
                 additions: [
                     "dark chocolate",
-                    "white chocolate"
+                    "white chocolate",
                 ]
             },
         ]
     }
 ];
-const productCardsDiv = document.createElement("div");
+const productCardsDiv = document.getElementById("cards");
 function showUsersCards() {
     productCardsDiv.innerHTML = "";
     for (let x in users) {
         const userCardObj = users[x];
+        if (userCardObj.isSeller) {
+            if (userCardObj.donuts) {
+                for (let j in userCardObj.donuts) {
+                    const donutObj = userCardObj.donuts[j];
+                    console.log(donutObj);
+                    const cardDiv = document.createElement("div");
+                    const donutImage = document.createElement("img");
+                    cardDiv.classList.add("card");
+                    donutImage.classList.add("donut-image");
+                    donutImage.src = donutObj.donutImage;
+                    cardDiv.append(donutImage);
+                    productCardsDiv.append(cardDiv);
+                }
+            }
+        }
     }
 }
+showUsersCards();
+export {};

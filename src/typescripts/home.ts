@@ -1,10 +1,11 @@
-let users = [
+import { User, CompanyObj, DonutObj } from "./utils/userModel";
+
+let users: User[] = [
     {
         userID: 1,
         firstName: "Daniel",
         lastName: "Uretsky",
         email: "daniel353a3@gmail.com",
-        password: "123",
         avatar: "../assets/icons/user.png",
         isSeller: true,
         company: {
@@ -16,18 +17,19 @@ let users = [
             {
                 donutName: "Basic",
                 donutTitle: "A wonderful basic dough",
-                donutImage: "./asstes/images/2.png",
+                donutImage: "../assets/images/donuts/2.png",
                 price: 130,
                 gluten: false,
                 lactose: false,
                 calories: 323,
-                adiitions: []
+                additions: []
             },
             {
                 donutName: "Creamy almonds",
                 donutTitle: "Savor the Creamy Almonds donut without gluten: Cream and almonds in perfect harmony",
-                donutImage: "./asstes/images/8.png",
+                donutImage: "../assets/images/donuts/8.png",
                 price: 130,
+                gluten: false,
                 lactose: false,
                 calories: 323,
                 additions: [
@@ -42,7 +44,6 @@ let users = [
         firstName: "John",
         lastName: "Doe",
         email: "john@gmail.com",
-        password: "john123",
         avatar: "../assets/icons/user.png",
         isSeller: false,
     },
@@ -51,7 +52,6 @@ let users = [
         firstName: "Ariana",
         lastName: "Lotus",
         email: "ariana@gmail.com",
-        password: "123",
         avatar: "../assets/icons/user.png",
         isSeller: true,
         company: {
@@ -63,24 +63,27 @@ let users = [
             {
                 donutName: "Powedered Sugar",
                 donutTitle: "Basic dounut with powedered sugar",
-                donutImage: "./asstes/images/7.png",
+                donutImage: "../assets/images/donuts/7.png",
                 price: 2.2,
                 gluten: true,
                 lactose: false,
                 calories: 295,
-                
+                additions: [
+                    "Powedered Sugar"
+                ]
+
             },
             {
                 donutName: "Choco Duo Delight",
                 donutTitle: "The perfect blend of white and dark chocolate in one delicious donut",
-                donutImage: "./asstes/images/8.png",
+                donutImage: "../assets/images/donuts/8.png",
                 price: 130,
                 gluten: true,
                 lactose: true,
                 calories: 323,
                 additions: [
                     "dark chocolate",
-                    "white chocolate"
+                    "white chocolate",
                 ]
             },
         ]
@@ -89,12 +92,36 @@ let users = [
 
 
 
-const productCardsDiv = document.createElement("div") as HTMLDivElement;
+const productCardsDiv = document.getElementById("cards") as HTMLDivElement;
 
-function showUsersCards():void {
+function showUsersCards(): void {
     productCardsDiv.innerHTML = "";
 
-    for(let x in users) {
-       const userCardObj = users[x]
+    for (let x in users) {
+        const userCardObj: User = users[x];
+
+        if (userCardObj.isSeller) {
+            if (userCardObj.donuts) {
+                for(let j in userCardObj.donuts) {
+                    const donutObj: DonutObj = userCardObj.donuts[j];
+                    console.log(donutObj);
+                    
+                    const cardDiv = document.createElement("div") as HTMLDivElement;
+                    const donutImage = document.createElement("img") as HTMLImageElement;
+
+
+
+                    cardDiv.classList.add("card");
+                    donutImage.classList.add("donut-image")
+
+                    donutImage.src = donutObj.donutImage;
+                    cardDiv.append(donutImage);
+                    productCardsDiv.append(cardDiv);
+                    
+                }
+
+            }
+        }
     }
 }
+showUsersCards()
