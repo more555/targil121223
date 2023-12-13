@@ -1,4 +1,9 @@
 "use strict";
-console.log("hello");
-console.log("sads");
-console.log("sads5");
+// let xhr = new XMLHttpRequest();
+// xhr.open("Get", "https://randomuser.me/api", true)
+// xhr.onload = function ():void {
+//     let response = JSON.parse(this.responseText);
+//     response = response.results;
+//     console.log(response);
+// }
+// xhr.send()
