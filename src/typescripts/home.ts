@@ -109,8 +109,6 @@ function showUsersCards(): void {
                     const cardDiv = document.createElement("div") as HTMLDivElement;
                     const donutImage = document.createElement("img") as HTMLImageElement;
 
-
-
                     cardDiv.classList.add("card");
                     donutImage.classList.add("donut-image")
 
