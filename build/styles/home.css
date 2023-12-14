@@ -171,10 +171,8 @@ nav {
 }
 
 .card {
-    position: relative;
-
     width: 300px;
-    min-height: 300px;
+    min-height: auto;
 
     margin-top: 100px;
     margin-bottom: 30px;
@@ -186,11 +184,140 @@ nav {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.253);
 }
 
+.card-image-header {
+    position: relative;
+    width: 300px;
+    height: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+
 .donut-image {
     position: absolute;
+    top: -80px;
+    
 
-    top: -65px;
-    left: 70px;
     width: 150px;
     height: 150px;
 }
+
+.card-donut-info {
+    width: 300px;
+    min-height: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
+    text-align: center;
+
+    
+}
+
+.card-donut-info__donut-name {
+    color: rgb(248, 79, 226);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.card-donut-info__donut-title {
+    color: rgb(213, 109, 222);
+    font-weight: 600;
+}
+
+.card-donut-additions {
+    width: 300px;
+    min-height: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+
+.card-donut-additions__header {
+    width: 250px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    color: rgb(248, 79, 226);
+    font-weight: 600;
+
+   
+}
+
+.card-donut-additions__additions {
+    width: 250px;
+    height: 40px;
+
+    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    color: rgb(248, 79, 226);
+    font-size: 0.8rem;
+
+    
+
+}
+
+.seller-info {
+    width: 250px;
+    height: 300px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+
+    color: rgb(94, 94, 94);
+    
+    font-weight: 600;
+
+    
+}
+
+.seller-info__header {
+    width: 250px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+
+    border-bottom: 1px solid;
+}
+
+.seller-info__initials {
+    width: 250px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    
+}
+
+.seller-avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+}
+
+
+
