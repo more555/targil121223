@@ -2,56 +2,202 @@
     "users": [
         {
             "userID": 1,
-            "firstName": "kldsfasdas",
-            "lastName": "kldsfasdas",
-            "email": "kldsfasdas",
-            "password": "kldsfasdas",
-            "avatar": "Asdasd",
+            "firstName": "Daniel",
+            "lastName": "Uretsky",
+            "email": "daniel353a3@gmail.com",
+            "avatar": "../assets/icons/user.png",
             "isSeller": true,
             "company": {
-                "companyName": "asdasd",
-                "country": "asdasd",
-                "city": "asdasd"
+                "companyName": "Doughnuts",
+                "country": "United States",
+                "city": "New York"
             },
             "donuts": [
                 {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "../asstes/images/2.png",
-                    "price": 1.5,
-                    "gluten": true,
-                    "calories": 220,
-                    "additions": [
-                        "chocholate",
-                        "vanilla"
-                    ]
-                },
-                {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "donutName": "Basic",
+                    "donutTitle": "A wonderful basic dough",
+                    "donutImage": "../assets/images/donuts/2.png",
                     "price": 130,
                     "gluten": false,
+                    "lactose": false,
+                    "calories": 323,
+                    "additions": []
+                },
+                {
+                    "donutName": "Creamy almonds",
+                    "donutTitle": "Savor the Creamy Almonds donut without gluten: Cream and almonds in perfect harmony",
+                    "donutImage": "../assets/images/donuts/8.png",
+                    "price": 130,
+                    "gluten": false,
+                    "lactose": false,
                     "calories": 323,
                     "additions": [
-                        "chocholate",
-                        "vanilla"
+                        "cream",
+                        "almonds"
+                    ]
+                }
+            ]
+        },
+        {
+            "userID": 2,
+            "firstName": "Ariana",
+            "lastName": "Lotus",
+            "email": "ariana@gmail.com",
+            "avatar": "../assets/icons/user.png",
+            "isSeller": true,
+            "company": {
+                "companyName": "Glaze and Grace",
+                "country": "Latvia",
+                "city": "Riga"
+            },
+            "donuts": [
+                {
+                    "donutName": "Powedered Sugar",
+                    "donutTitle": "Basic dounut with powedered sugar",
+                    "donutImage": "../assets/images/donuts/7.png",
+                    "price": 2.2,
+                    "gluten": true,
+                    "lactose": false,
+                    "calories": 295,
+                    "additions": [
+                        "Powedered Sugar"
                     ]
                 },
                 {
-                    "donutName": "Sdfdsfdsf",
-                    "donutTitle": "Sdfdsfdsf",
-                    "donutImage": "dasfdsgfdfghgfjhgj",
+                    "donutName": "Choco Duo Delight",
+                    "donutTitle": "The perfect blend of white and dark chocolate in one delicious donut",
+                    "donutImage": "../assets/images/donuts/5.png",
                     "price": 130,
                     "gluten": true,
+                    "lactose": true,
                     "calories": 323,
                     "additions": [
-                        "chocholate",
-                        "vanilla"
+                        "dark chocolate",
+                        "white chocolate"
+                    ]
+                }
+            ]
+        },
+        {
+            "userID": 3,
+            "firstName": "George",
+            "lastName": "Constanza",
+            "email": "george@constanza.com",
+            "password": "JasonAlexander",
+            "avatar": "../assets/images/george.jpg",
+            "isSeller": true,
+            "company": {
+                "companyName": "Shrinkage Patisserie",
+                "country": "Israel",
+                "city": "Tel Aviv"
+            },
+            "donuts": [
+                {
+                    "donutName": "Purple Dream",
+                    "donutTitle": "A wonderfull donut with blueberry glaze",
+                    "donutImage": "../assets/images/donuts/12.jpg",
+                    "price": 130,
+                    "gluten": true,
+                    "lactose": false,
+                    "calories": 323,
+                    "additions": [
+                        "blueberry",
+                        "confetti"
+                    ]
+                },
+                {
+                    "donutName": "Chocolate confetti",
+                    "donutTitle": "Sweet donut with milk chocolate and confetti",
+                    "donutImage": "../assets/images/donuts/11.jpg",
+                    "price": 13,
+                    "gluten": true,
+                    "lactose": true,
+                    "calories": 450,
+                    "additions": [
+                        "milk chocolate",
+                        "confetti"
+                    ]
+                },
+                {
+                    "donutName": "Chocolate",
+                    "donutTitle": "Base donut with choclolate",
+                    "donutImage": "../assets/images/donuts/9.jpg",
+                    "price": 14,
+                    "gluten": false,
+                    "lactose": true,
+                    "calories": 380,
+                    "additions": [
+                        "chocolate"
+                    ]
+                },
+                {
+                    "donutName": "Double chocolate",
+                    "donutTitle": "Donut with chocolate glaze and chocolate confetti",
+                    "donutImage": "../assets/images/donuts/10.jpg",
+                    "price": 13,
+                    "gluten": false,
+                    "lactose": true,
+                    "calories": 400,
+                    "additions": [
+                        "chocolate ",
+                        "confetti"
+                    ]
+                }
+            ]
+        },
+        {
+            "userID": 4,
+            "firstName": "Cosmo",
+            "lastName": "Kramer",
+            "email": "cosmo@kramer.com",
+            "password": "MichaelRichards",
+            "avatar": "../assets/images/kramer.jpg",
+            "isSeller": true,
+            "company": {
+                "companyName": "Vandelay food production",
+                "country": "Israel",
+                "city": "Rishon Lezion"
+            },
+            "donuts": [
+                {
+                    "donutName": "Strawberry",
+                    "donutTitle": "Donut with straberry glaze and confetti",
+                    "donutImage": "../assets/images/donuts/1.jpg",
+                    "price": 14,
+                    "gluten": true,
+                    "lactose": false,
+                    "calories": 450,
+                    "additions": [
+                        "straberry",
+                        "confetti"
+                    ]
+                },
+                {
+                    "donutName": "Sweet Rasberry ",
+                    "donutTitle": "Donut with rasberry glaze and confetti",
+                    "donutImage": "../assets/images/donuts/4.jpg",
+                    "price": 13,
+                    "gluten": true,
+                    "lactose": false,
+                    "calories": 340,
+                    "additions": [
+                        "rasberry",
+                        "confetti"
+                    ]
+                },
+                {
+                    "donutName": "Sweeet",
+                    "donutTitle": "Sweet donut with powedered sugar",
+                    "donutImage": "../assets/images/donuts/crumble.jpg",
+                    "price": 15,
+                    "gluten": true,
+                    "lactose": false,
+                    "calories": 250,
+                    "additions": [
+                        "powedered sugar"
                     ]
                 }
             ]
         }
-        
     ]
 }
