@@ -21,6 +21,7 @@ export class User {
     public firstName: string;
     public lastName: string;
     public email: string;
+    public password: string;
     public avatar: string;
     public isSeller: boolean;
     public company?: CompanyObj;
@@ -31,6 +32,7 @@ export class User {
         firstName: string, 
         lastName: string, 
         email: string, 
+        password: string, 
         avatar: string, 
         isSeller: boolean,
         company?: CompanyObj,
@@ -41,6 +43,7 @@ export class User {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
         this.avatar = avatar;
         this.isSeller = isSeller;
         this.company = company;

@@ -5,6 +5,7 @@
             "firstName": "Daniel",
             "lastName": "Uretsky",
             "email": "daniel353a3@gmail.com",
+            "password": "123",
             "avatar": "../assets/icons/user.png",
             "isSeller": true,
             "company": {
