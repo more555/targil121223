@@ -101,12 +101,13 @@ function showUsersCards() {
                     cardDiv.classList.add("card");
                     donutImage.classList.add("donut-image");
                     donutImage.src = donutObj.donutImage;
-                    cardDiv.append(donutImage);
-                    productCardsDiv.append(cardDiv);
+                    cardDiv.append(donutImage);                    productCardsDiv.append(cardDiv);
                 }
             }
         }
     }
 }
+
 showUsersCards();
 export {};
+
