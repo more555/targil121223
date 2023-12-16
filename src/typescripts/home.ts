@@ -221,20 +221,41 @@ const productCardsDiv = document.getElementById("cards") as HTMLDivElement;
 const userCartDiv = document.createElement("div") as HTMLDivElement;
 const userCartButtonDiv = document.createElement("div") as HTMLDivElement;
 const userCartButtonImage = document.createElement("img") as HTMLImageElement;
+const userCartItemsCounterSpan = document.createElement("span") as HTMLImageElement;
 
 const userSellButton = document.createElement("div") as HTMLDivElement;
 
 const searchInput = document.getElementById("search") as HTMLInputElement;
 const searchImage = document.getElementById("search-icon") as HTMLImageElement;
 
+const shoppingCartDiv = document.createElement("div") as HTMLDivElement;
+const shoppingCartHeaderDiv = document.createElement("div") as HTMLDivElement;
+const shoppingCartMainDiv = document.createElement("div") as HTMLDivElement;
+const shoppingCartCheckoutDiv = document.createElement("div") as HTMLDivElement;
+
+const shoppingCartCheckoutBtnDiv = document.createElement("div") as HTMLDivElement;
+const totalPriceSpan = document.createElement("span") as HTMLSpanElement;
+
+
+let userCart: DonutObj[] = [];
+
+let isShoppingCartOpen = false;
+
+const setCartItemsCount = (): void => {
+    userCartItemsCounterSpan.textContent = String(userCart.length);
+}
+
 if (!loggedUser.isSeller) {
     userCartDiv.classList.add("user-cart");
     userCartButtonDiv.classList.add("user-cart__btn");
     userCartButtonImage.classList.add("cart-icon");
+    userCartItemsCounterSpan.classList.add("items-counter");
 
     userCartButtonDiv.textContent = "Cart";
+    setCartItemsCount();
     userCartButtonImage.src = '../assets/icons/shopping-cart.png';
 
+    userCartButtonDiv.append(userCartItemsCounterSpan);
     userCartButtonDiv.append(userCartButtonImage);
     userCartDiv.append(userCartButtonDiv);
 
@@ -252,19 +273,114 @@ const searchHandler = (value: string): void => {
         let result: User[] = [];
         for (let x in users) {
             let userObj: User = users[x];
-            
-            if(userObj.firstName.toLowerCase().includes(value.toLowerCase()) ||
-               userObj.lastName.toLowerCase().includes(value.toLowerCase())
+
+            if (userObj.firstName.toLowerCase().includes(value.toLowerCase()) ||
+                userObj.lastName.toLowerCase().includes(value.toLowerCase())
             ) {
                 result.push(userObj);
             }
-            
+
         }
-        console.log(result);
         showUsersCards(result);
     }
     else {
         showUsersCards(users);
+    }
+}
+
+const addToCartHandler = (donut: DonutObj): void => {
+    userCart.push(donut);
+    showCart(userCart);
+    setCartItemsCount();
+}
+
+const showCart = (userCartArr: DonutObj[]) => {
+    let totalPrice: number = 0;
+    shoppingCartMainDiv.innerHTML = "";
+
+
+    for (let x in userCartArr) {
+        const donutItemObj: DonutObj = userCartArr[x];
+
+        const cartItem = document.createElement("div") as HTMLDivElement;
+
+        const cartItemImageDiv = document.createElement("div") as HTMLDivElement;
+        const cartItemImage = document.createElement("img") as HTMLImageElement;
+        const cartItemImagePrice = document.createElement("span") as HTMLSpanElement;
+        const cartItemNameDiv = document.createElement("div") as HTMLDivElement;
+        const removeItemImage = document.createElement("img") as HTMLImageElement;
+
+
+        cartItem.classList.add("cart-item");
+        cartItemImageDiv.classList.add("cart-item__image");
+        cartItemImage.classList.add("item-image");
+        cartItemImagePrice.classList.add("item-price");
+        cartItemNameDiv.classList.add("item-name");
+        removeItemImage.classList.add("remove-item-icon");
+
+        cartItemImage.src = donutItemObj.donutImage;
+
+        cartItemImagePrice.textContent = `${donutItemObj.price}$`;
+        cartItemNameDiv.textContent = donutItemObj.donutName;
+
+        totalPrice += donutItemObj.price;
+
+        removeItemImage.src = '../assets/icons/trash.png';
+        cartItemImageDiv.append(cartItemImage);
+        cartItemImageDiv.append(cartItemImagePrice);
+
+        cartItem.append(cartItemImageDiv);
+        cartItem.append(cartItemNameDiv);
+        cartItem.append(removeItemImage);
+
+        shoppingCartMainDiv.append(cartItem);
+
+        removeItemImage.addEventListener("click", (): void => {
+            removeItemCartHandler(userCartArr, Number(x));
+        });
+    }
+
+    totalPriceSpan.textContent = `${String(totalPrice.toFixed(1))}$`;
+
+}
+
+const removeItemCartHandler = (usersCartArr: DonutObj[], index: number): void => {
+    usersCartArr.splice(index, 1);
+    console.log(usersCartArr);
+
+    showCart(usersCartArr);
+    setCartItemsCount();
+}
+
+
+const openShoppingCart = (userCartArr: DonutObj[]) => {
+    isShoppingCartOpen = !isShoppingCartOpen;
+
+    if (isShoppingCartOpen) {
+        shoppingCartDiv.classList.add("shopping-cart");
+        shoppingCartHeaderDiv.classList.add("shopping-cart__header");
+        shoppingCartMainDiv.classList.add("shopping-cart__items");
+        shoppingCartCheckoutDiv.classList.add("shopping-cart__checkout");
+        shoppingCartCheckoutBtnDiv.classList.add("chechout-btn");
+        totalPriceSpan.classList.add("total-price");
+
+        shoppingCartCheckoutBtnDiv.textContent = "checkout";
+
+        shoppingCartHeaderDiv.textContent = "CART";
+
+
+        shoppingCartDiv.append(shoppingCartHeaderDiv);
+
+        showCart(userCartArr);
+        shoppingCartDiv.append(shoppingCartMainDiv);
+
+        shoppingCartCheckoutBtnDiv.append(totalPriceSpan);
+        shoppingCartCheckoutDiv.append(shoppingCartCheckoutBtnDiv);
+        shoppingCartDiv.append(shoppingCartCheckoutDiv);
+
+        userCartDiv.append(shoppingCartDiv);
+    } else {
+        shoppingCartDiv.remove()
     }
 }
 
@@ -277,7 +393,7 @@ function showUsersCards(usersArr: User[]): void {
             if (userCardObj.donuts) {
                 for (let j in userCardObj.donuts) {
                     const donutObj: DonutObj = userCardObj.donuts[j];
-                    console.log(donutObj);
+                    //console.log(donutObj);
 
                     const cardDiv = document.createElement("div") as HTMLDivElement;
 
@@ -338,7 +454,6 @@ function showUsersCards(usersArr: User[]): void {
                     donutPriceDiv.classList.add("donut-price");
                     donutPriceButton.classList.add("donut-price__add-to-cart");
                     donutPriceSpan.classList.add("donut-price__price");
-
 
                     donutImage.src = donutObj.donutImage;
                     initialsImage.src = userCardObj.avatar;
@@ -420,10 +535,18 @@ function showUsersCards(usersArr: User[]): void {
                     cardDonutSellerInfoDiv.append(sellerHeaderDiv);
                     cardDonutSellerInfoDiv.append(sellerInitialsDiv);
                     cardDonutSellerInfoDiv.append(sellerInfoDiv);
-                    cardDonutSellerInfoDiv.append(donutPriceDiv);
+
+                    if (!loggedUser.isSeller) {
+                        cardDonutSellerInfoDiv.append(donutPriceDiv);
+                    }
+
                     cardDiv.append(cardDonutSellerInfoDiv);
 
                     productCardsDiv.append(cardDiv);
+
+                    donutPriceButton.addEventListener("click", () => {
+                        addToCartHandler(donutObj);
+                    });
                 }
             }
         }
@@ -433,4 +556,8 @@ showUsersCards(users);
 
 searchImage?.addEventListener("click", () => {
     searchHandler(searchInput.value)
+})
+
+userCartButtonDiv.addEventListener("click", () => {
+    openShoppingCart(userCart);
 })
