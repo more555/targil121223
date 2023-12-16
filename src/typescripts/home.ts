@@ -19,7 +19,7 @@ let users: User[] = [
                 donutName: "Basic",
                 donutTitle: "A wonderful basic dough",
                 donutImage: "../assets/images/donuts/2.png",
-                price: 130,
+                price: 1.5,
                 gluten: false,
                 lactose: false,
                 calories: 323,
@@ -29,7 +29,7 @@ let users: User[] = [
                 donutName: "Creamy almonds",
                 donutTitle: "Savor the Creamy Almonds donut without gluten: Cream and almonds in perfect harmony",
                 donutImage: "../assets/images/donuts/8.png",
-                price: 130,
+                price: 2.5,
                 gluten: false,
                 lactose: false,
                 calories: 323,
@@ -70,7 +70,7 @@ let users: User[] = [
                 donutName: "Choco Duo Delight",
                 donutTitle: "The perfect blend of white and dark chocolate in one delicious donut",
                 donutImage: "../assets/images/donuts/5.png",
-                price: 130,
+                price: 5,
                 gluten: true,
                 lactose: true,
                 calories: 323,
@@ -99,7 +99,7 @@ let users: User[] = [
                 donutName: "Purple Dream",
                 donutTitle: "A wonderfull donut with blueberry glaze",
                 donutImage: "../assets/images/donuts/12.png",
-                price: 130,
+                price: 2.8,
                 gluten: true,
                 lactose: false,
                 calories: 323,
@@ -112,7 +112,7 @@ let users: User[] = [
                 donutName: "Chocolate confetti",
                 donutTitle: "Sweet donut with milk chocolate and confetti",
                 donutImage: "../assets/images/donuts/11.png",
-                price: 13,
+                price: 4,
                 gluten: true,
                 lactose: true,
                 calories: 450,
@@ -125,7 +125,7 @@ let users: User[] = [
                 donutName: "Chocolate",
                 donutTitle: "Base donut with choclolate",
                 donutImage: "../assets/images/donuts/9.png",
-                price: 14,
+                price: 3,
                 gluten: false,
                 lactose: true,
                 calories: 380,
@@ -137,12 +137,12 @@ let users: User[] = [
                 donutName: "Double chocolate",
                 donutTitle: "Donut with chocolate glaze and chocolate confetti",
                 donutImage: "../assets/images/donuts/10.png",
-                price: 13,
+                price: 3.3,
                 gluten: false,
                 lactose: true,
                 calories: 400,
                 additions: [
-                    "chocolate ",
+                    "chocolate",
                     "confetti"
                 ]
             }
@@ -166,7 +166,7 @@ let users: User[] = [
                 donutName: "Strawberry",
                 donutTitle: "Donut with straberry glaze and confetti",
                 donutImage: "../assets/images/donuts/1.png",
-                price: 14,
+                price: 4,
                 gluten: true,
                 lactose: false,
                 calories: 450,
@@ -179,7 +179,7 @@ let users: User[] = [
                 donutName: "Sweet Rasberry ",
                 donutTitle: "Donut with rasberry glaze and confetti",
                 donutImage: "../assets/images/donuts/4.png",
-                price: 13,
+                price: 4.2,
                 gluten: true,
                 lactose: false,
                 calories: 340,
@@ -192,7 +192,7 @@ let users: User[] = [
                 donutName: "Sweeet",
                 donutTitle: "Sweet donut with powedered sugar",
                 donutImage: "../assets/images/donuts/3.png",
-                price: 15,
+                price: 3.8,
                 gluten: true,
                 lactose: false,
                 calories: 250,
@@ -204,15 +204,74 @@ let users: User[] = [
     }
 ];
 
+const loggedUser: User = {
+    userID: 5,
+    firstName: "Ben",
+    lastName: "Megidish",
+    email: "ben@gmail.com",
+    password: "123545",
+    avatar: "../assets/icons/user.png",
+    isSeller: false
 
+}
 
+const userProfileDiv = document.getElementById("profile") as HTMLDivElement;
 const productCardsDiv = document.getElementById("cards") as HTMLDivElement;
 
-function showUsersCards(): void {
-    productCardsDiv.innerHTML = "";
+const userCartDiv = document.createElement("div") as HTMLDivElement;
+const userCartButtonDiv = document.createElement("div") as HTMLDivElement;
+const userCartButtonImage = document.createElement("img") as HTMLImageElement;
 
-    for (let x in users) {
-        const userCardObj: User = users[x];
+const userSellButton = document.createElement("div") as HTMLDivElement;
+
+const searchInput = document.getElementById("search") as HTMLInputElement;
+const searchImage = document.getElementById("search-icon") as HTMLImageElement;
+
+if (!loggedUser.isSeller) {
+    userCartDiv.classList.add("user-cart");
+    userCartButtonDiv.classList.add("user-cart__btn");
+    userCartButtonImage.classList.add("cart-icon");
+
+    userCartButtonDiv.textContent = "Cart";
+    userCartButtonImage.src = '../assets/icons/shopping-cart.png';
+
+    userCartButtonDiv.append(userCartButtonImage);
+    userCartDiv.append(userCartButtonDiv);
+
+    userProfileDiv.insertAdjacentElement("afterbegin", userCartDiv);
+}
+else {
+    userSellButton.classList.add("sell-btn");
+    userSellButton.textContent = "+ sell";
+
+    userProfileDiv.insertAdjacentElement("afterbegin", userSellButton);
+}
+
+const searchHandler = (value: string): void => {
+    if (value !== "") {
+        let result: User[] = [];
+        for (let x in users) {
+            let userObj: User = users[x];
+            
+            if(userObj.firstName.toLowerCase().includes(value.toLowerCase()) ||
+               userObj.lastName.toLowerCase().includes(value.toLowerCase())
+            ) {
+                result.push(userObj);
+            }
+            
+        }
+        console.log(result);
+        showUsersCards(result);
+    }
+    else {
+        showUsersCards(users);
+    }
+}
+
+function showUsersCards(usersArr: User[]): void {
+    productCardsDiv.innerHTML = "";
+    for (let x in usersArr) {
+        const userCardObj: User = usersArr[x];
 
         if (userCardObj.isSeller) {
             if (userCardObj.donuts) {
@@ -234,8 +293,24 @@ function showUsersCards(): void {
                     const sellerInitialsDiv = document.createElement("div") as HTMLDivElement;
                     const initialsImage = document.createElement("img") as HTMLImageElement;
                     const initialsSpan = document.createElement("span") as HTMLImageElement;
+                    const sellerInfoDiv = document.createElement("div") as HTMLDivElement;
+                    const InfoCompanyNameDiv = document.createElement("div") as HTMLDivElement;
+                    const InfoEmailDiv = document.createElement("div") as HTMLDivElement;
+                    const InfoCountryDiv = document.createElement("div") as HTMLDivElement;
+                    const InfoCityDiv = document.createElement("div") as HTMLDivElement;
+                    const companyNameImage = document.createElement("img") as HTMLImageElement;
+                    const emailImage = document.createElement("img") as HTMLImageElement;
+                    const countryImage = document.createElement("img") as HTMLImageElement;
+                    const cityImage = document.createElement("img") as HTMLImageElement;
+                    const companyNameSpan = document.createElement("span") as HTMLImageElement;
+                    const emailSpan = document.createElement("span") as HTMLImageElement;
+                    const countrySpan = document.createElement("span") as HTMLImageElement;
+                    const citySpan = document.createElement("span") as HTMLImageElement;
 
-                    
+                    const donutPriceDiv = document.createElement("div") as HTMLDivElement;
+                    const donutPriceButton = document.createElement("div") as HTMLDivElement;
+                    const donutPriceSpan = document.createElement("span") as HTMLDivElement;
+
 
                     cardDiv.classList.add("card");
 
@@ -249,17 +324,42 @@ function showUsersCards(): void {
                     cardDonutSellerInfoDiv.classList.add("seller-info");
                     sellerHeaderDiv.classList.add("seller-info__header");
                     sellerInitialsDiv.classList.add("seller-info__initials");
-                    initialsImage.classList.add("seller-avatar")
+                    initialsImage.classList.add("seller-avatar");
+                    sellerInfoDiv.classList.add("seller-company-info");
+                    InfoCompanyNameDiv.classList.add("seller-company-info__company-name");
+                    InfoEmailDiv.classList.add("seller-company-info__email");
+                    InfoCountryDiv.classList.add("seller-company-info__country");
+                    InfoCityDiv.classList.add("seller-company-info__city");
+                    companyNameImage.classList.add("company-name-icon");
+                    emailImage.classList.add("email-icon");
+                    countryImage.classList.add("country-icon");
+                    cityImage.classList.add("city-icon");
+
+                    donutPriceDiv.classList.add("donut-price");
+                    donutPriceButton.classList.add("donut-price__add-to-cart");
+                    donutPriceSpan.classList.add("donut-price__price");
+
 
                     donutImage.src = donutObj.donutImage;
                     initialsImage.src = userCardObj.avatar;
+                    companyNameImage.src = '../assets/icons/company.png';
+                    emailImage.src = '../assets/icons/mail.png';
+                    countryImage.src = '../assets/icons/location.png';
+                    cityImage.src = '../assets/icons/city.png';
 
                     donutNameSpan.textContent = donutObj.donutName;
                     donutTitleSpan.textContent = donutObj.donutTitle;
 
-                    initialsSpan.textContent = `${userCardObj.firstName} ${userCardObj.lastName}`
+                    initialsSpan.textContent = `${userCardObj.firstName} ${userCardObj.lastName}`;
 
                     sellerHeaderDiv.textContent = "Seller";
+
+                    companyNameSpan.textContent = userCardObj.company?.companyName as string;
+                    emailSpan.textContent = userCardObj.email;
+                    countrySpan.textContent = userCardObj.company?.country as string;
+                    citySpan.textContent = userCardObj.company?.city as string;
+                    donutPriceButton.textContent = '+ Add';
+                    donutPriceSpan.textContent = `${donutObj.price}$`;
 
                     cardImageHeaderDiv.append(donutImage);
 
@@ -268,8 +368,22 @@ function showUsersCards(): void {
 
                     sellerInitialsDiv.append(initialsImage);
                     sellerInitialsDiv.append(initialsSpan);
-                    cardDonutSellerInfoDiv.append(sellerHeaderDiv);
-                    cardDonutSellerInfoDiv.append(sellerInitialsDiv);
+
+                    InfoCompanyNameDiv.append(companyNameImage);
+                    InfoCompanyNameDiv.append(companyNameSpan);
+                    InfoEmailDiv.append(emailImage)
+                    InfoEmailDiv.append(emailSpan)
+                    InfoCountryDiv.append(countryImage)
+                    InfoCountryDiv.append(countrySpan)
+                    InfoCityDiv.append(cityImage)
+                    InfoCityDiv.append(citySpan);
+                    sellerInfoDiv.append(InfoCompanyNameDiv);
+                    sellerInfoDiv.append(InfoEmailDiv);
+                    sellerInfoDiv.append(InfoCountryDiv);
+                    sellerInfoDiv.append(InfoCityDiv);
+
+                    donutPriceDiv.append(donutPriceButton);
+                    donutPriceDiv.append(donutPriceSpan);
 
                     cardDiv.append(cardImageHeaderDiv);
                     cardDiv.append(cardDonutInfoDiv);
@@ -280,21 +394,21 @@ function showUsersCards(): void {
                         const donutAdditionsDiv = document.createElement("div") as HTMLSpanElement;
                         const additionsHeaderDiv = document.createElement("div") as HTMLSpanElement;
                         const additionsDiv = document.createElement("div") as HTMLSpanElement;
-                        
+
                         donutAdditionsDiv.classList.add("card-donut-additions");
                         additionsHeaderDiv.classList.add("card-donut-additions__header");
                         additionsDiv.classList.add("card-donut-additions__additions");
-                        
+
                         additionsHeaderDiv.textContent = "supplements:";
-                        
-                        
+
+
                         for (let x in additionsArray) {
                             const additionSpan = document.createElement("span") as HTMLSpanElement;
                             const addition: string = additionsArray[x]
-                           
-                            
+
+
                             additionSpan.textContent = `* ${addition}`;
-                            
+
                             additionsDiv.append(additionSpan)
                         }
 
@@ -303,15 +417,20 @@ function showUsersCards(): void {
                         cardDiv.append(donutAdditionsDiv);
                     }
 
+                    cardDonutSellerInfoDiv.append(sellerHeaderDiv);
+                    cardDonutSellerInfoDiv.append(sellerInitialsDiv);
+                    cardDonutSellerInfoDiv.append(sellerInfoDiv);
+                    cardDonutSellerInfoDiv.append(donutPriceDiv);
                     cardDiv.append(cardDonutSellerInfoDiv);
 
                     productCardsDiv.append(cardDiv);
-
-
                 }
-
             }
         }
     }
 }
-showUsersCards();
+showUsersCards(users);
+
+searchImage?.addEventListener("click", () => {
+    searchHandler(searchInput.value)
+})

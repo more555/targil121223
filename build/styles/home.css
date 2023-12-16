@@ -9,7 +9,7 @@ body {
 }
 
 main {
-    width: 1100px;
+    width: 70%;
     height: 900px;
 
     display: flex;
@@ -29,7 +29,7 @@ main {
 }
 
 .wrapper {
-    width: 1050px;
+    width: 95%;
     height: 850px;
 
     background-color: rgb(255, 255, 255);
@@ -41,14 +41,20 @@ main {
     align-items: center;
 }
 
+header {
+    width: 100%;
+    height: 80px;
+}
+
 
 nav {
-    width: 1050px;
+    width: 100%;
     height: 80px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -74,18 +80,19 @@ nav {
 }
 
 .profile {
-    width: 300px;
+    width: auto;
     height: 60px;
 
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 25px;
+    margin-right: 20px;
 
 }
 
 .user-cart {
-    width: 190px;
+    width: 120px;
     height: 60px;
 
     display: flex;
@@ -119,10 +126,9 @@ nav {
 }
 
 .main {
-    width: 950px;
+    width: 100%;
     height: 750px;
 
-    
 }
 
 .header {
@@ -136,43 +142,88 @@ nav {
     font-size: 3.5rem;
     font-weight: 900;
 
-    color: rgba(248, 79, 226, 0.733)
+    color: rgba(248, 79, 226, 0.733);
 
 }
 
 .products {
-    width: 900px;
+    width: 90%;
     height: 540px;
     
-
+    
     margin: auto;
 }
 
 
 .tools {
-    width: 100%;
-    height: 100px;
+    width: 80%;
+    height: 80px;
 
-    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.tools__search {
+    position: relative;
+    width: 220px;
+    height: 30px;
+
+    transition: width .4s ease-in-out;
+}
+
+.tools__search:has(#search:focus) {
+    width: 300px;
+}
+
+#search {
+    width: 100%;
+    height: 30px;
+    
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+#search-icon {
+    position: absolute;
+    top: 3px;
+    right: 0;
+
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+}
+
+#search-icon:hover {
+    filter:drop-shadow(0 0 2px rgb(89, 89, 89));
 }
 
 .product-cards {
     width: 100%;
     height: 440px;
 
-   
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    overflow-y: scroll;
-    
+    overflow-y: auto;
+}
+
+.product-cards::-webkit-scrollbar {
+    width: 10px;
+}
+
+.product-cards::-webkit-scrollbar-thumb {
+    background-color: rgba(248, 79, 226, 0.733);
+
+    border-radius: 5px;
 }
 
 .card {
     width: 300px;
-    min-height: auto;
+    height: auto;
 
     margin-top: 100px;
     margin-bottom: 30px;
@@ -258,13 +309,13 @@ nav {
 
 .card-donut-additions__additions {
     width: 250px;
-    height: 40px;
+    height: 10px;
 
     
     display: flex;
     justify-content: space-around;
     align-items: center;
-
+   
     color: rgb(248, 79, 226);
     font-size: 0.8rem;
 
@@ -274,7 +325,7 @@ nav {
 
 .seller-info {
     width: 250px;
-    height: 300px;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -317,6 +368,69 @@ nav {
     height: 40px;
 
     border-radius: 50%;
+}
+
+.seller-company-info {
+    width: 250px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.seller-company-info__company-name, 
+.seller-company-info__email,
+.seller-company-info__country,
+.seller-company-info__city {
+    width: 250px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.company-name-icon,
+.email-icon,
+.country-icon,
+.city-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.donut-price {
+    position: relative;
+    width: 300px;
+    height: 90px;
+
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.donut-price__add-to-cart {
+    width: 100px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    
+    color: white;
+    background-color: rgb(248, 79, 226);
+}
+
+.donut-price__price {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+
+    font-size: 1.3rem;
+
 }
 
 
