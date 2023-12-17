@@ -201,6 +201,7 @@ let users = [
         ]
     }
 ];
+const copyUsers = [...users];
 const loggedUser = {
     userID: 5,
     firstName: "Ben",
@@ -208,7 +209,7 @@ const loggedUser = {
     email: "ben@gmail.com",
     password: "123545",
     avatar: "../assets/icons/user.png",
-    isSeller: false
+    isSeller: true
 };
 const userProfileDiv = document.getElementById("profile");
 const productCardsDiv = document.getElementById("cards");
@@ -219,12 +220,16 @@ const userCartItemsCounterSpan = document.createElement("span");
 const userSellButton = document.createElement("div");
 const searchInput = document.getElementById("search");
 const searchImage = document.getElementById("search-icon");
+const glutenFreeCheckBox = document.getElementById("glutenFreeCheckBox");
+const lactoseFreeCheckBox = document.getElementById("lactoseFreeCheckBox");
 const shoppingCartDiv = document.createElement("div");
 const shoppingCartHeaderDiv = document.createElement("div");
 const shoppingCartMainDiv = document.createElement("div");
 const shoppingCartCheckoutDiv = document.createElement("div");
 const shoppingCartCheckoutBtnDiv = document.createElement("div");
 const totalPriceSpan = document.createElement("span");
+const sellContainerBackgroundDiv = document.createElement("div");
+const sellContainerDiv = document.createElement("div");
 let userCart = [];
 let isShoppingCartOpen = false;
 const setCartItemsCount = () => {
@@ -332,6 +337,25 @@ const openShoppingCart = (userCartArr) => {
         shoppingCartDiv.remove();
     }
 };
+const filterHandler = (chechbox, arr) => {
+    if (chechbox.checked) {
+        for (let x in arr) {
+            const userCardObj = arr[x];
+            if (userCardObj.isSeller && userCardObj.donuts) {
+                if (chechbox.id === 'glutenFreeCheckBox') {
+                    userCardObj.donuts = userCardObj.donuts.filter(elem => !elem.gluten);
+                }
+                else if (chechbox.id === 'lactoseFreeCheckBox') {
+                    userCardObj.donuts = userCardObj.donuts.filter(elem => !elem.lactose);
+                }
+            }
+        }
+        showUsersCards(arr);
+    }
+    else {
+        showUsersCards(copyUsers);
+    }
+};
 function showUsersCards(usersArr) {
     productCardsDiv.innerHTML = "";
     for (let x in usersArr) {
@@ -344,6 +368,7 @@ function showUsersCards(usersArr) {
                     const cardDiv = document.createElement("div");
                     const cardImageHeaderDiv = document.createElement("div");
                     const donutImage = document.createElement("img");
+                    const donutCaloriesSpan = document.createElement("span");
                     const cardDonutInfoDiv = document.createElement("div");
                     const donutNameSpan = document.createElement("span");
                     const donutTitleSpan = document.createElement("span");
@@ -371,6 +396,7 @@ function showUsersCards(usersArr) {
                     cardDiv.classList.add("card");
                     cardImageHeaderDiv.classList.add("card-image-header");
                     donutImage.classList.add("donut-image");
+                    donutCaloriesSpan.classList.add("donut-calories");
                     cardDonutInfoDiv.classList.add("card-donut-info");
                     donutNameSpan.classList.add("card-donut-info__donut-name");
                     donutTitleSpan.classList.add("card-donut-info__donut-title");
@@ -398,6 +424,7 @@ function showUsersCards(usersArr) {
                     cityImage.src = '../assets/icons/city.png';
                     donutNameSpan.textContent = donutObj.donutName;
                     donutTitleSpan.textContent = donutObj.donutTitle;
+                    donutCaloriesSpan.textContent = `${donutObj.calories} kcal`;
                     initialsSpan.textContent = `${userCardObj.firstName} ${userCardObj.lastName}`;
                     sellerHeaderDiv.textContent = "Seller";
                     companyNameSpan.textContent = userCardObj.company?.companyName;
@@ -407,6 +434,7 @@ function showUsersCards(usersArr) {
                     donutPriceButton.textContent = '+ Add';
                     donutPriceSpan.textContent = `${donutObj.price}$`;
                     cardImageHeaderDiv.append(donutImage);
+                    cardImageHeaderDiv.append(donutCaloriesSpan);
                     cardDonutInfoDiv.append(donutNameSpan);
                     cardDonutInfoDiv.append(donutTitleSpan);
                     sellerInitialsDiv.append(initialsImage);
@@ -469,4 +497,11 @@ searchImage?.addEventListener("click", () => {
 userCartButtonDiv.addEventListener("click", () => {
     openShoppingCart(userCart);
 });
+glutenFreeCheckBox.addEventListener("change", () => {
+    filterHandler(glutenFreeCheckBox, users);
+});
+lactoseFreeCheckBox.addEventListener("click", () => {
+    filterHandler(lactoseFreeCheckBox, users);
+});
 export {};
+//userSellButton.addEventListener("click", )
