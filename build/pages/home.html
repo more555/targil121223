@@ -22,18 +22,9 @@
                         <p class="logo-text">Donut's</p>
                     </div>
 
-                    <div class="profile">
-                        <div class="sell-btn">
-                            sell +
-                        </div>
+                    <div class="profile" id="profile">
                         
-                        <div class="user-cart">
-                            <div class="user-cart__btn">
-                                <img src="../assets/icons/shopping-cart.png" alt="cart" class="cart-icon">
-                                Cart
-                            </div>
-                            <img src="../assets/icons/user.png" alt="user" class="user-image">
-                        </div>
+                        <img src="../assets/icons/user.png" alt="user" class="user-image">
                     </div>
                 </nav>
             </header>
@@ -44,7 +35,21 @@
                 </div>
                 <div class="products">
                     <div class="tools">
-                        h
+                        <div class="tools__search">
+                            <input type="text" id="search" placeholder="Search...">
+
+                            <img src="../assets/icons/search.png" alt="search" id="search-icon">
+                        </div>
+                        <div class="tools-filter">
+                            <div class="gluten-free">
+                                <img src="../assets/icons/gluten-free.png" alt="">
+                                <input type="checkbox" id="glutenFreeCheckBox">
+                            </div>
+                            <div class="lactose-free">
+                                <img src="../assets/icons/lactose-free.png" alt="">
+                                <input type="checkbox" id="lactoseFreeCheckBox">
+                            </div>
+                        </div>
                     </div>
                     <div class="product-cards" id="cards">
 

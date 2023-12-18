@@ -9,7 +9,7 @@ body {
 }
 
 main {
-    width: 1100px;
+    width: 70%;
     height: 900px;
 
     display: flex;
@@ -29,7 +29,7 @@ main {
 }
 
 .wrapper {
-    width: 1050px;
+    width: 95%;
     height: 850px;
 
     background-color: rgb(255, 255, 255);
@@ -41,14 +41,20 @@ main {
     align-items: center;
 }
 
+header {
+    width: 100%;
+    height: 80px;
+}
+
 
 nav {
-    width: 1050px;
+    width: 100%;
     height: 80px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -74,18 +80,20 @@ nav {
 }
 
 .profile {
-    width: 300px;
+    width: auto;
     height: 60px;
 
 
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 25px;
+    margin-right: 20px;
 
 }
 
 .user-cart {
-    width: 190px;
+    position: relative;
+    width: 120px;
     height: 60px;
 
     display: flex;
@@ -94,6 +102,7 @@ nav {
 }
 
 .user-cart__btn {
+    position: relative;
     width: 120px;
     height: 40px;
 
@@ -106,11 +115,189 @@ nav {
 
     background-color: rgba(248, 79, 226, 0.733);
     color: white;
+
+    cursor: pointer;
+}
+
+.items-counter {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.shopping-cart {
+    position: absolute;
+    top: 55px;
+    right: 10px;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 10px;
+    box-shadow: 0 0 15px 0 rgb(94, 94, 94);
+
+    background-color: white;
+
+}
+
+.shopping-cart__header {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: rgb(94, 94, 94);
+
+}
+
+.shopping-cart__items {
+    width: 100%;
+    height: 140px;
+
+    overflow-x: auto;
+}
+
+.cart-item {
+    width: 230px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    margin: auto;
+    margin-top: 9px;
+}
+
+.cart-item__image {
+    position: relative;
+    width: 65px;
+    height: 40px;
+
+}
+
+.item-image {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+}
+
+.item-price {
+    position: absolute;
+
+    top: 0;
+    color: white;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: rgb(94, 94, 94);
+
+}
+
+.item-name {
+    width: 110px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    text-align: center;
+
+    color: rgb(94, 94, 94);
+}
+
+.remove-item-icon {
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+}
+
+.remove-item-icon:hover {
+    filter: drop-shadow(0 0 1px rgb(94, 94, 94));
+}
+
+.shopping-cart__items::-webkit-scrollbar {
+    width: 0px;
+}
+
+.shopping-cart__checkout {
+    position: relative;
+    width: 100%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+}
+
+.chechout-btn {
+
+    width: 100px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgb(223, 85, 186);
+    border-radius: 10px;
+
+    font-weight: 600;
+    color: rgb(223, 85, 186);
+
+    cursor: pointer;
+}
+
+.total-price {
+    position: absolute;
+    top: 3px;
+    right: 15px;
+}
+
+.chechout-btn:hover {
+    box-shadow: 0 0 5px 0 rgb(223, 85, 186);
+}
+
+
+.user-cart__btn:hover {
+    box-shadow: 0 0 20px 0 rgb(223, 85, 186);
 }
 
 .cart-icon {
+    position: relative;
     width: 30px;
     height: 30px;
+}
+
+.sell-btn {
+    width: 100px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+    border: 2px solid rgb(118, 118, 118);
+   
+
+    color: rgb(91, 91, 91);
+
+    cursor: pointer;
+}
+
+.sell-btn:hover {
+    box-shadow: 0 0 10px 0 rgb(86, 86, 86);
 }
 
 .user-image {
@@ -119,10 +306,9 @@ nav {
 }
 
 .main {
-    width: 950px;
+    width: 100%;
     height: 750px;
 
-    
 }
 
 .header {
@@ -136,43 +322,114 @@ nav {
     font-size: 3.5rem;
     font-weight: 900;
 
-    color: rgba(248, 79, 226, 0.733)
+    color: rgba(248, 79, 226, 0.733);
 
 }
 
 .products {
-    width: 900px;
+    width: 90%;
     height: 540px;
-    
+
 
     margin: auto;
 }
 
 
 .tools {
-    width: 100%;
-    height: 100px;
+    width: 80%;
+    height: 80px;
 
-    background-color: aquamarine;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.tools__search {
+    position: relative;
+    width: 220px;
+    height: 30px;
+
+    transition: width .4s ease-in-out;
+}
+
+.tools__search:has(#search:focus) {
+    width: 300px;
+}
+
+#search {
+    width: 100%;
+    height: 30px;
+
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+#search-icon {
+    position: absolute;
+    top: 3px;
+    right: 0;
+
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+}
+
+#search-icon:hover {
+    filter: drop-shadow(0 0 2px rgb(89, 89, 89));
+}
+
+.tools-filter {
+    width: 140px;
+    height: 30px;
+
+    display: flex;
+    
+    justify-content: space-between;
+}
+
+.gluten-free,
+.lactose-free {
+    width: 50px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gluten-free img,
+.lactose-free img {
+    width: 30px;
+    height: 30px;
 }
 
 .product-cards {
     width: 100%;
     height: 440px;
 
-   
-
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    overflow-y: scroll;
-    
+    overflow-y: auto;
+}
+
+.product-cards::-webkit-scrollbar {
+    width: 10px;
+}
+
+.product-cards::-webkit-scrollbar-thumb {
+    background-color: rgba(248, 79, 226, 0.733);
+
+    border-radius: 5px;
 }
 
 .card {
     width: 300px;
-    min-height: auto;
+    height: auto;
 
     margin-top: 100px;
     margin-bottom: 30px;
@@ -192,17 +449,27 @@ nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    
 }
 
 .donut-image {
     position: absolute;
     top: -80px;
-    
+
 
     width: 150px;
     height: 150px;
+}
+
+.donut-calories {
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(248, 79, 226, 0.733);
+    
 }
 
 .card-donut-info {
@@ -216,7 +483,7 @@ nav {
     gap: 10px;
     text-align: center;
 
-    
+
 }
 
 .card-donut-info__donut-name {
@@ -238,7 +505,7 @@ nav {
     flex-direction: column;
     align-items: center;
 
-    
+
 }
 
 .card-donut-additions__header {
@@ -249,18 +516,18 @@ nav {
     align-items: center;
     justify-content: center;
 
-    
+
     color: rgb(248, 79, 226);
     font-weight: 600;
 
-   
+
 }
 
 .card-donut-additions__additions {
     width: 250px;
-    height: 40px;
+    height: 10px;
 
-    
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -268,13 +535,11 @@ nav {
     color: rgb(248, 79, 226);
     font-size: 0.8rem;
 
-    
-
 }
 
 .seller-info {
     width: 250px;
-    height: 300px;
+    height: auto;
 
     display: flex;
     flex-direction: column;
@@ -283,10 +548,10 @@ nav {
     margin: auto;
 
     color: rgb(94, 94, 94);
-    
+
     font-weight: 600;
 
-    
+
 }
 
 .seller-info__header {
@@ -296,7 +561,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-   
+
 
     border-bottom: 1px solid;
 }
@@ -309,7 +574,7 @@ nav {
     align-items: center;
     gap: 5px;
 
-    
+
 }
 
 .seller-avatar {
@@ -319,5 +584,71 @@ nav {
     border-radius: 50%;
 }
 
+.seller-company-info {
+    width: 250px;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.seller-company-info__company-name,
+.seller-company-info__email,
+.seller-company-info__country,
+.seller-company-info__city {
+    width: 250px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+.company-name-icon,
+.email-icon,
+.country-icon,
+.city-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.donut-price {
+    position: relative;
+    width: 300px;
+    height: 90px;
 
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.donut-price__add-to-cart {
+    width: 100px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+
+    color: white;
+    background-color: rgb(248, 79, 226);
+
+    cursor: pointer;
+}
+
+.donut-price__add-to-cart:hover {
+    box-shadow: 0 0 5px 0 rgb(248, 79, 226);
+}
+
+.donut-price__price {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+
+    font-size: 1.3rem;
+
+}
