@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: blueviolet;
-}
-
 main {
     width: 70%;
     height: 900px;
@@ -26,57 +22,6 @@ main {
     margin-bottom: 30px;
 
 
-}
-
-.wrapper {
-    width: 95%;
-    height: 850px;
-
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-}
-
-header {
-    width: 100%;
-    height: 80px;
-}
-
-
-nav {
-    width: 100%;
-    height: 80px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.logo {
-    width: 200px;
-    height: 60px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-}
-
-.logo-icon {
-    width: 60px;
-    height: 60px;
-}
-
-.logo-text {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
-    font-size: 1.5rem;
-    font-style: italic;
 }
 
 .profile {
