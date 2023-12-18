@@ -1,13 +1,30 @@
+"use strict";
+//import { User } from "./utils/userModel.js";
 let loginButton = document.getElementById("loginButton");
 loginButton.addEventListener("click", loginHandler);
 function loginHandler() {
-    let username = document.getElementById("username");
+    let email = document.getElementById("email");
     let password = document.getElementById("password");
-    if (username.value == "" || password.value == "") {
+    if (email.value == "" || password.value == "") {
         alert("Please set you info first!");
     }
     else {
-        let usersData = JSON.parse(localStorage.getItem("users"));
+        let usersData = JSON.parse(localStorage.getItem("donutseek"));
+        let flag = false;
+        for (let x in usersData) {
+            let user = usersData[x];
+            if (user.email == email.value && user.password == password.value) {
+                window.location.href = "../pages/home.html";
+                flag = true;
+                break;
+            }
+            ;
+        }
+        ;
+        if (!flag) {
+            alert("email or password does not exist!");
+        }
     }
+    ;
 }
-export {};
+console.log();
