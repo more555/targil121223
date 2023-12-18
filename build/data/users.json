@@ -44,6 +44,7 @@
             "firstName": "Ariana",
             "lastName": "Lotus",
             "email": "ariana@gmail.com",
+            "password": "ariana123",
             "avatar": "../assets/icons/user.png",
             "isSeller": true,
             "company": {
@@ -96,7 +97,7 @@
                 {
                     "donutName": "Purple Dream",
                     "donutTitle": "A wonderfull donut with blueberry glaze",
-                    "donutImage": "../assets/images/donuts/12.jpg",
+                    "donutImage": "../assets/images/donuts/12.png",
                     "price": 2.8,
                     "gluten": true,
                     "lactose": false,
@@ -109,7 +110,7 @@
                 {
                     "donutName": "Chocolate confetti",
                     "donutTitle": "Sweet donut with milk chocolate and confetti",
-                    "donutImage": "../assets/images/donuts/11.jpg",
+                    "donutImage": "../assets/images/donuts/11.png",
                     "price": 4,
                     "gluten": true,
                     "lactose": true,
@@ -122,7 +123,7 @@
                 {
                     "donutName": "Chocolate",
                     "donutTitle": "Base donut with choclolate",
-                    "donutImage": "../assets/images/donuts/9.jpg",
+                    "donutImage": "../assets/images/donuts/9.png",
                     "price": 3,
                     "gluten": false,
                     "lactose": true,
@@ -134,13 +135,13 @@
                 {
                     "donutName": "Double chocolate",
                     "donutTitle": "Donut with chocolate glaze and chocolate confetti",
-                    "donutImage": "../assets/images/donuts/10.jpg",
+                    "donutImage": "../assets/images/donuts/10.png",
                     "price": 3.3,
                     "gluten": false,
                     "lactose": true,
                     "calories": 400,
                     "additions": [
-                        "chocolate ",
+                        "chocolate",
                         "confetti"
                     ]
                 }
@@ -163,7 +164,7 @@
                 {
                     "donutName": "Strawberry",
                     "donutTitle": "Donut with straberry glaze and confetti",
-                    "donutImage": "../assets/images/donuts/1.jpg",
+                    "donutImage": "../assets/images/donuts/1.png",
                     "price": 4,
                     "gluten": true,
                     "lactose": false,
@@ -176,7 +177,7 @@
                 {
                     "donutName": "Sweet Rasberry ",
                     "donutTitle": "Donut with rasberry glaze and confetti",
-                    "donutImage": "../assets/images/donuts/4.jpg",
+                    "donutImage": "../assets/images/donuts/4.png",
                     "price": 4.2,
                     "gluten": true,
                     "lactose": false,
@@ -189,7 +190,7 @@
                 {
                     "donutName": "Sweeet",
                     "donutTitle": "Sweet donut with powedered sugar",
-                    "donutImage": "../assets/images/donuts/crumble.jpg",
+                    "donutImage": "../assets/images/donuts/3.png",
                     "price": 3.8,
                     "gluten": true,
                     "lactose": false,

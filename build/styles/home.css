@@ -279,27 +279,6 @@ nav {
     height: 30px;
 }
 
-.sell-btn {
-    width: 100px;
-    height: 35px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 20px;
-    border: 2px solid rgb(118, 118, 118);
-   
-
-    color: rgb(91, 91, 91);
-
-    cursor: pointer;
-}
-
-.sell-btn:hover {
-    box-shadow: 0 0 10px 0 rgb(86, 86, 86);
-}
-
 .user-image {
     width: 40px;
     height: 40px;

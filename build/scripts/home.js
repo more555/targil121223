@@ -1,207 +1,6 @@
-let users = [
-    {
-        userID: 1,
-        firstName: "Daniel",
-        lastName: "Uretsky",
-        email: "daniel353a3@gmail.com",
-        password: "123",
-        avatar: "../assets/icons/user.png",
-        isSeller: true,
-        company: {
-            companyName: "Doughnuts",
-            country: "United States",
-            city: "New York"
-        },
-        donuts: [
-            {
-                donutName: "Basic",
-                donutTitle: "A wonderful basic dough",
-                donutImage: "../assets/images/donuts/2.png",
-                price: 1.5,
-                gluten: false,
-                lactose: false,
-                calories: 323,
-                additions: []
-            },
-            {
-                donutName: "Creamy almonds",
-                donutTitle: "Savor the Creamy Almonds donut without gluten: Cream and almonds in perfect harmony",
-                donutImage: "../assets/images/donuts/8.png",
-                price: 2.5,
-                gluten: false,
-                lactose: false,
-                calories: 323,
-                additions: [
-                    "cream",
-                    "almonds"
-                ]
-            }
-        ]
-    },
-    {
-        userID: 2,
-        firstName: "Ariana",
-        lastName: "Lotus",
-        email: "ariana@gmail.com",
-        password: "ariana123",
-        avatar: "../assets/icons/user.png",
-        isSeller: true,
-        company: {
-            companyName: "Glaze and Grace",
-            country: "Latvia",
-            city: "Riga"
-        },
-        donuts: [
-            {
-                donutName: "Powedered Sugar",
-                donutTitle: "Basic dounut with powedered sugar",
-                donutImage: "../assets/images/donuts/7.png",
-                price: 2.2,
-                gluten: true,
-                lactose: false,
-                calories: 295,
-                additions: [
-                    "Powedered Sugar"
-                ]
-            },
-            {
-                donutName: "Choco Duo Delight",
-                donutTitle: "The perfect blend of white and dark chocolate in one delicious donut",
-                donutImage: "../assets/images/donuts/5.png",
-                price: 5,
-                gluten: true,
-                lactose: true,
-                calories: 323,
-                additions: [
-                    "dark chocolate",
-                    "white chocolate"
-                ]
-            }
-        ]
-    },
-    {
-        userID: 3,
-        firstName: "George",
-        lastName: "Constanza",
-        email: "george@constanza.com",
-        password: "JasonAlexander",
-        avatar: "../assets/images/george.jpg",
-        isSeller: true,
-        company: {
-            companyName: "Shrinkage Patisserie",
-            country: "Israel",
-            city: "Tel Aviv"
-        },
-        donuts: [
-            {
-                donutName: "Purple Dream",
-                donutTitle: "A wonderfull donut with blueberry glaze",
-                donutImage: "../assets/images/donuts/12.png",
-                price: 2.8,
-                gluten: true,
-                lactose: false,
-                calories: 323,
-                additions: [
-                    "blueberry",
-                    "confetti"
-                ]
-            },
-            {
-                donutName: "Chocolate confetti",
-                donutTitle: "Sweet donut with milk chocolate and confetti",
-                donutImage: "../assets/images/donuts/11.png",
-                price: 4,
-                gluten: true,
-                lactose: true,
-                calories: 450,
-                additions: [
-                    "milk chocolate",
-                    "confetti"
-                ]
-            },
-            {
-                donutName: "Chocolate",
-                donutTitle: "Base donut with choclolate",
-                donutImage: "../assets/images/donuts/9.png",
-                price: 3,
-                gluten: false,
-                lactose: true,
-                calories: 380,
-                additions: [
-                    "chocolate"
-                ]
-            },
-            {
-                donutName: "Double chocolate",
-                donutTitle: "Donut with chocolate glaze and chocolate confetti",
-                donutImage: "../assets/images/donuts/10.png",
-                price: 3.3,
-                gluten: false,
-                lactose: true,
-                calories: 400,
-                additions: [
-                    "chocolate",
-                    "confetti"
-                ]
-            }
-        ]
-    },
-    {
-        userID: 4,
-        firstName: "Cosmo",
-        lastName: "Kramer",
-        email: "cosmo@kramer.com",
-        password: "MichaelRichards",
-        avatar: "../assets/images/kramer.jpg",
-        isSeller: true,
-        company: {
-            companyName: "Vandelay food production",
-            country: "Israel",
-            city: "Rishon Lezion"
-        },
-        donuts: [
-            {
-                donutName: "Strawberry",
-                donutTitle: "Donut with straberry glaze and confetti",
-                donutImage: "../assets/images/donuts/1.png",
-                price: 4,
-                gluten: true,
-                lactose: false,
-                calories: 450,
-                additions: [
-                    "straberry",
-                    "confetti"
-                ]
-            },
-            {
-                donutName: "Sweet Rasberry ",
-                donutTitle: "Donut with rasberry glaze and confetti",
-                donutImage: "../assets/images/donuts/4.png",
-                price: 4.2,
-                gluten: true,
-                lactose: false,
-                calories: 340,
-                additions: [
-                    "rasberry",
-                    "confetti"
-                ]
-            },
-            {
-                donutName: "Sweeet",
-                donutTitle: "Sweet donut with powedered sugar",
-                donutImage: "../assets/images/donuts/3.png",
-                price: 3.8,
-                gluten: true,
-                lactose: false,
-                calories: 250,
-                additions: [
-                    "powedered sugar"
-                ]
-            }
-        ]
-    }
-];
-const copyUsers = [...users];
+let usersTest = JSON.parse(localStorage.getItem("donutseek"));
+console.log(usersTest);
+//const copyUsers = [...users];
 const loggedUser = {
     userID: 5,
     firstName: "Ben",
@@ -209,7 +8,7 @@ const loggedUser = {
     email: "ben@gmail.com",
     password: "123545",
     avatar: "../assets/icons/user.png",
-    isSeller: true
+    isSeller: false
 };
 const userProfileDiv = document.getElementById("profile");
 const productCardsDiv = document.getElementById("cards");
@@ -217,7 +16,6 @@ const userCartDiv = document.createElement("div");
 const userCartButtonDiv = document.createElement("div");
 const userCartButtonImage = document.createElement("img");
 const userCartItemsCounterSpan = document.createElement("span");
-const userSellButton = document.createElement("div");
 const searchInput = document.getElementById("search");
 const searchImage = document.getElementById("search-icon");
 const glutenFreeCheckBox = document.getElementById("glutenFreeCheckBox");
@@ -228,8 +26,8 @@ const shoppingCartMainDiv = document.createElement("div");
 const shoppingCartCheckoutDiv = document.createElement("div");
 const shoppingCartCheckoutBtnDiv = document.createElement("div");
 const totalPriceSpan = document.createElement("span");
-const sellContainerBackgroundDiv = document.createElement("div");
-const sellContainerDiv = document.createElement("div");
+let glutenFlag = false;
+let lactoseFlag = false;
 let userCart = [];
 let isShoppingCartOpen = false;
 const setCartItemsCount = () => {
@@ -248,16 +46,11 @@ if (!loggedUser.isSeller) {
     userCartDiv.append(userCartButtonDiv);
     userProfileDiv.insertAdjacentElement("afterbegin", userCartDiv);
 }
-else {
-    userSellButton.classList.add("sell-btn");
-    userSellButton.textContent = "+ sell";
-    userProfileDiv.insertAdjacentElement("afterbegin", userSellButton);
-}
 const searchHandler = (value) => {
     if (value !== "") {
         let result = [];
-        for (let x in users) {
-            let userObj = users[x];
+        for (let x in usersTest) {
+            let userObj = usersTest[x];
             if (userObj.firstName.toLowerCase().includes(value.toLowerCase()) ||
                 userObj.lastName.toLowerCase().includes(value.toLowerCase())) {
                 result.push(userObj);
@@ -266,7 +59,7 @@ const searchHandler = (value) => {
         showUsersCards(result);
     }
     else {
-        showUsersCards(users);
+        showUsersCards(usersTest);
     }
 };
 const addToCartHandler = (donut) => {
@@ -337,23 +130,38 @@ const openShoppingCart = (userCartArr) => {
         shoppingCartDiv.remove();
     }
 };
-const filterHandler = (chechbox, arr) => {
-    if (chechbox.checked) {
-        for (let x in arr) {
-            const userCardObj = arr[x];
+const filterGlutenHandler = (arr) => {
+    glutenFlag = !glutenFlag;
+    if (glutenFlag) {
+        const filteredUsers = arr.filter(userCardObj => {
             if (userCardObj.isSeller && userCardObj.donuts) {
-                if (chechbox.id === 'glutenFreeCheckBox') {
-                    userCardObj.donuts = userCardObj.donuts.filter(elem => !elem.gluten);
-                }
-                else if (chechbox.id === 'lactoseFreeCheckBox') {
-                    userCardObj.donuts = userCardObj.donuts.filter(elem => !elem.lactose);
-                }
+                userCardObj.donuts = userCardObj.donuts.filter(elem => !elem.gluten);
+                return true; // Keep this user
             }
-        }
-        showUsersCards(arr);
+            return false; // Exclude this user
+        });
+        showUsersCards(filteredUsers);
     }
     else {
-        showUsersCards(copyUsers);
+        showUsersCards(JSON.parse(String(localStorage.getItem("donutseek"))));
+    }
+};
+const filterLactoseHandler = (arr) => {
+    lactoseFlag = !lactoseFlag;
+    console.log(lactoseFlag);
+    if (lactoseFlag) {
+        const filteredUsers = arr.filter(userCardObj => {
+            if (userCardObj.isSeller && userCardObj.donuts) {
+                userCardObj.donuts = userCardObj.donuts.filter(elem => !elem.lactose);
+                return true; // Keep this user
+            }
+            return false; // Exclude this user
+        });
+        showUsersCards(filteredUsers);
+    }
+    else {
+        console.log(usersTest);
+        showUsersCards(JSON.parse(String(localStorage.getItem("donutseek"))));
     }
 };
 function showUsersCards(usersArr) {
@@ -490,18 +298,17 @@ function showUsersCards(usersArr) {
         }
     }
 }
-showUsersCards(users);
+showUsersCards(usersTest);
 searchImage?.addEventListener("click", () => {
     searchHandler(searchInput.value);
 });
 userCartButtonDiv.addEventListener("click", () => {
     openShoppingCart(userCart);
 });
-glutenFreeCheckBox.addEventListener("change", () => {
-    filterHandler(glutenFreeCheckBox, users);
+glutenFreeCheckBox.addEventListener("click", () => {
+    filterGlutenHandler(usersTest);
 });
 lactoseFreeCheckBox.addEventListener("click", () => {
-    filterHandler(lactoseFreeCheckBox, users);
+    filterLactoseHandler(usersTest);
 });
 export {};
-//userSellButton.addEventListener("click", )
