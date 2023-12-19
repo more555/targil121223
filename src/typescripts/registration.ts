@@ -43,6 +43,7 @@ let addUser = (): void => {
         response1.push(user);
         localStorage.setItem("donutseek", JSON.stringify(response1))
         let gotologin = document.getElementById("gotologin") as HTMLDivElement;
+        window.location.href = "../pages/login.html";
         gotologin.style.visibility = ("visible");
         firstName.value = "";
         lastName.value = "";

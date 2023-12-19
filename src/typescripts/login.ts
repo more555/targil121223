@@ -12,12 +12,15 @@ function loginHandler() {
         alert("Please set you info first!");
     }else{
         let usersData = JSON.parse(localStorage.getItem("donutseek") as string);
+        console.log(usersData);
         let flag = false;
         for(let x in usersData)
         {
             let user = usersData[x];
+            
             if(user.email == email.value && user.password == password.value)
             {
+                localStorage.setItem("loggedUser", JSON.stringify(user));
                 window.location.href = "../pages/home.html";
                 flag = true;
                 break;

@@ -34,6 +34,24 @@ main {
     gap: 25px;
     margin-right: 20px;
 
+    position: relative;
+}
+
+.logo-icon {
+}
+
+#logout {
+    position: absolute;
+    top: 0;
+    right: -17px;
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+}
+
+#logout:hover {
+    filter: drop-shadow(0 0 5px black);
 }
 
 .user-cart {

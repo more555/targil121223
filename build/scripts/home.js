@@ -1,21 +1,15 @@
 let usersTest = JSON.parse(localStorage.getItem("donutseek"));
-console.log(usersTest);
-//const copyUsers = [...users];
-const loggedUser = {
-    userID: 5,
-    firstName: "Ben",
-    lastName: "Megidish",
-    email: "ben@gmail.com",
-    password: "123545",
-    avatar: "../assets/icons/user.png",
-    isSeller: false
-};
+const loggedUser = JSON.parse(String(localStorage.getItem("loggedUser")));
+if (!loggedUser) {
+    window.location.href = "../pages/login.html";
+}
 const userProfileDiv = document.getElementById("profile");
 const productCardsDiv = document.getElementById("cards");
 const userCartDiv = document.createElement("div");
 const userCartButtonDiv = document.createElement("div");
 const userCartButtonImage = document.createElement("img");
 const userCartItemsCounterSpan = document.createElement("span");
+const toolTip = document.getElementById("toolTip");
 const searchInput = document.getElementById("search");
 const searchImage = document.getElementById("search-icon");
 const glutenFreeCheckBox = document.getElementById("glutenFreeCheckBox");
@@ -26,9 +20,10 @@ const shoppingCartMainDiv = document.createElement("div");
 const shoppingCartCheckoutDiv = document.createElement("div");
 const shoppingCartCheckoutBtnDiv = document.createElement("div");
 const totalPriceSpan = document.createElement("span");
+const logoutImage = document.getElementById("logout");
+let userCart = [];
 let glutenFlag = false;
 let lactoseFlag = false;
-let userCart = [];
 let isShoppingCartOpen = false;
 const setCartItemsCount = () => {
     userCartItemsCounterSpan.textContent = String(userCart.length);
@@ -38,6 +33,7 @@ if (!loggedUser.isSeller) {
     userCartButtonDiv.classList.add("user-cart__btn");
     userCartButtonImage.classList.add("cart-icon");
     userCartItemsCounterSpan.classList.add("items-counter");
+    toolTip.title = `${loggedUser.firstName} ${loggedUser.lastName}`;
     userCartButtonDiv.textContent = "Cart";
     setCartItemsCount();
     userCartButtonImage.src = '../assets/icons/shopping-cart.png';
@@ -66,6 +62,10 @@ const addToCartHandler = (donut) => {
     userCart.push(donut);
     showCart(userCart);
     setCartItemsCount();
+};
+const logout = () => {
+    localStorage.removeItem("loggedUser");
+    window.location.href = "../pages/login.html";
 };
 const showCart = (userCartArr) => {
     let totalPrice = 0;
@@ -311,4 +311,5 @@ glutenFreeCheckBox.addEventListener("click", () => {
 lactoseFreeCheckBox.addEventListener("click", () => {
     filterLactoseHandler(usersTest);
 });
+logoutImage.addEventListener("click", logout);
 export {};

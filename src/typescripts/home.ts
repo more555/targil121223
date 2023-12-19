@@ -1,21 +1,11 @@
 import { User, CompanyObj, DonutObj } from "./utils/userModel";
+
 let usersTest: User[] = JSON.parse(localStorage.getItem("donutseek") as string);
-console.log(usersTest);
 
+const loggedUser:User = JSON.parse(String(localStorage.getItem("loggedUser")));
 
-
-//const copyUsers = [...users];
-
-
-const loggedUser: User = {
-    userID: 5,
-    firstName: "Ben",
-    lastName: "Megidish",
-    email: "ben@gmail.com",
-    password: "123545",
-    avatar: "../assets/icons/user.png",
-    isSeller: false
-
+if(!loggedUser) {
+    window.location.href = "../pages/login.html"
 }
 
 const userProfileDiv = document.getElementById("profile") as HTMLDivElement;
@@ -25,6 +15,7 @@ const userCartDiv = document.createElement("div") as HTMLDivElement;
 const userCartButtonDiv = document.createElement("div") as HTMLDivElement;
 const userCartButtonImage = document.createElement("img") as HTMLImageElement;
 const userCartItemsCounterSpan = document.createElement("span") as HTMLImageElement;
+const toolTip = document.getElementById("toolTip") as HTMLElement;
 
 const searchInput = document.getElementById("search") as HTMLInputElement;
 const searchImage = document.getElementById("search-icon") as HTMLImageElement;
@@ -39,13 +30,12 @@ const shoppingCartCheckoutDiv = document.createElement("div") as HTMLDivElement;
 const shoppingCartCheckoutBtnDiv = document.createElement("div") as HTMLDivElement;
 const totalPriceSpan = document.createElement("span") as HTMLSpanElement;
 
-
-
-let glutenFlag = false;
-let lactoseFlag = false;
+const logoutImage = document.getElementById("logout") as HTMLImageElement;
 
 let userCart: DonutObj[] = [];
 
+let glutenFlag = false;
+let lactoseFlag = false;
 let isShoppingCartOpen = false;
 
 const setCartItemsCount = (): void => {
@@ -57,18 +47,19 @@ if (!loggedUser.isSeller) {
     userCartButtonDiv.classList.add("user-cart__btn");
     userCartButtonImage.classList.add("cart-icon");
     userCartItemsCounterSpan.classList.add("items-counter");
+    toolTip.title = `${loggedUser.firstName} ${loggedUser.lastName}`
 
     userCartButtonDiv.textContent = "Cart";
     setCartItemsCount();
     userCartButtonImage.src = '../assets/icons/shopping-cart.png';
 
     userCartButtonDiv.append(userCartItemsCounterSpan);
+    
     userCartButtonDiv.append(userCartButtonImage);
     userCartDiv.append(userCartButtonDiv);
 
     userProfileDiv.insertAdjacentElement("afterbegin", userCartDiv);
 }
-
 
 const searchHandler = (value: string): void => {
     if (value !== "") {
@@ -94,6 +85,11 @@ const addToCartHandler = (donut: DonutObj): void => {
     userCart.push(donut);
     showCart(userCart);
     setCartItemsCount();
+}
+
+const logout = (): void => {
+    localStorage.removeItem("loggedUser");
+    window.location.href = "../pages/login.html"
 }
 
 const showCart = (userCartArr: DonutObj[]) => {
@@ -418,3 +414,5 @@ glutenFreeCheckBox.addEventListener("click", () => {
 lactoseFreeCheckBox.addEventListener("click", () => {
     filterLactoseHandler(usersTest);
 });
+
+logoutImage.addEventListener("click", logout);
